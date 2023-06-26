@@ -18,7 +18,7 @@ public class RockPaperScissors {
         actionToScore.put("Z", 3);
 
 
-        // V1: Reading input from data directory
+        // V1: Reading input from data directory TODO: Try to read it directly from url
         File file = new File("src/data/adventofcode.com_2022_day_2_input.txt"); // TODO: Check why can't I do "./data/fileName"?
         Scanner sc = new Scanner(file);
         Long score = 0L;
@@ -58,29 +58,6 @@ public class RockPaperScissors {
         }
 
         System.out.println(score);
-
-        /*
-
-        1. What is the purpose of wrapping InputStreamReader into BufferedReader?
-            The BufferedReader can’t read the InputStream directly,
-            so, we need to use an adapter like InputStreamReader to convert bytes to characters format.
-
-        2. How to make it work? Now -> err 400: Puzzle inputs differ by user.  Please log in to get your puzzle input.
-            TODO: Try to log in
-
-        URL input = new URL("https://adventofcode.com/2022/day/2/input");
-
-        BufferedReader in = new BufferedReader( // reads data (in characters) more efficiently
-                new InputStreamReader(input.openStream()) // converts data in bytes into data in characters
-        );
-
-        String inputLine;
-        while ((inputLine = in.readLine()) != null)
-            System.out.println(inputLine);
-        in.close();
-
-         */
-
 
         // PART II
         // X - lose
@@ -125,3 +102,25 @@ public class RockPaperScissors {
         System.out.println(score2);
     }
 }
+
+        /*
+
+        1. What is the purpose of wrapping InputStreamReader into BufferedReader?
+            The BufferedReader can’t read the InputStream directly,
+            so, we need to use an adapter like InputStreamReader to convert bytes to characters format.
+
+        2. How to make it work? Now -> err 400: Puzzle inputs differ by user.  Please log in to get your puzzle input.
+            TODO: Try to log in
+
+        URL input = new URL("https://adventofcode.com/2022/day/2/input");
+
+        BufferedReader in = new BufferedReader( // reads data (in characters) more efficiently
+                new InputStreamReader(input.openStream()) // converts data in bytes into data in characters
+        );
+
+        String inputLine;
+        while ((inputLine = in.readLine()) != null)
+            System.out.println(inputLine);
+        in.close();
+
+         */
